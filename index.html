@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITECH Fix | Phones, Laptops & Gadgets in Ile-Ife</title>
+  <meta name="description" content="Buy, fix, sell, swap, and repair phones, laptops, and gadgets at ITECH Fix in Mayfair, Ile-Ife. Contact us by WhatsApp or email." />
+  
+  <!-- Fonts: Poppins (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=20261020-mobile-swap" />
+</head>
+<body>
+  <!-- Top Trust Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-left">
+        <span class="pulse-dot"></span>
+        <span>Sales & Service: <strong>+234 812 026 8491</strong></span>
+        <span class="divider">|</span>
+        <span>90-Day Warranty on Genuine Parts & Micro-Soldering</span>
+      </div>
+      <div class="top-right">
+        <span>Mon - Sat: 8:30 AM - 7:30 PM (Express Walk-in & Mail-in)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container header-content">
+      <!-- Brand Logo -->
+      <a href="#home" class="logo-link" onclick="showPage('home')">
+        <div class="logo-emblem">
+          <img src="ITECH FIX Logo.jpeg" alt="ITECH FIX logo" class="logo-image" />
+        </div>
+        <div class="logo-text">
+          <div class="brand-title">ITECH <span class="highlight">FIX</span></div>
+          <div class="brand-sub">INFINITY TECHNOLOGY FIX</div>
+        </div>
+      </a>
+
+      <!-- Main navigation -->
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="main-navigation" aria-label="Main navigation">
+        <button class="nav-btn active" id="nav-home" onclick="showPage('home')">Home</button>
+        <button class="nav-btn" id="nav-repairs" onclick="showPage('repairs')">Repairs</button>
+        <button class="nav-btn" id="nav-parts" onclick="showPage('parts')">Parts Shop</button>
+        <button class="nav-btn" id="nav-technicians" onclick="showPage('technicians')">For Technicians</button>
+        <button class="nav-btn" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="openModal('book-modal')">Book a Repair</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================== -->
+    <!-- 1. HOMEPAGE                                                    -->
+    <!-- ============================================================== -->
+    <section id="page-home" class="page-section active">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="container hero-grid">
+          <div class="hero-left">
+              <span class="badge">Infinity Technology Fix · Ile-Ife, Nigeria</span>
+            <h1 class="hero-title">
+              Phones, laptops, <br />
+              <span class="gradient-text">gadgets & repairs.</span>
+            </h1>
+            <p class="hero-desc">
+              Trusted diagnostics, careful repairs, and dependable parts for phones, laptops, and other gadgets. Tell us what you need and we’ll help you find the right fix or the right device.
+            </p>
+            <div class="hero-cta">
+              <button class="btn btn-primary btn-lg" onclick="openModal('book-modal')">Book a Repair</button>
+              <button class="btn btn-outline btn-lg" onclick="showPage('swap')">Buy, sell or swap</button>
+              <button class="btn btn-outline btn-lg" onclick="showPage('parts')">Shop parts</button>
+              <button class="btn btn-outline btn-lg" onclick="showPage('technicians')">Technician orders</button>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-num">Phones</div>
+                <div class="stat-label">Repair expertise</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num color-cyan">Laptops</div>
+                <div class="stat-label">Sales & upgrades</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num color-green">Ile-Ife</div>
+                <div class="stat-label">Osun State, Nigeria</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Interactive Diagnostic Card -->
+          <div class="hero-right">
+            <div class="card card-dark quote-widget">
+              <h3 class="widget-title">Instant Repair Price Estimator</h3>
+              <p class="widget-sub">Transparent rates for phones & laptops</p>
+              
+              <div class="form-group">
+                <label>Select Device Category</label>
+                <select id="estimator-type" onchange="calculateEstimate()">
+                  <option value="phone">Smartphone (iPhone / Samsung / Pixel)</option>
+                  <option value="laptop">Laptop / MacBook (Apple / PC)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Reported Issue</label>
+                <select id="estimator-issue" onchange="calculateEstimate()">
+                  <option value="screen">Cracked Screen / OLED Display</option>
+                  <option value="battery">Battery Draining / Won't Hold Charge</option>
+                  <option value="board">Dead Logic Board / Micro-soldering</option>
+                  <option value="water">Liquid & Water Exposure</option>
+                  <option value="software">Bootloop / Corrupt OS / Unlock</option>
+                </select>
+              </div>
+
+              <div class="estimate-result">
+                <div class="result-row">
+                  <span>Estimated Cost:</span>
+                  <strong class="result-price" id="estimate-price">₦73,500 - ₦208,500</strong>
+                </div>
+                <div class="result-row">
+                  <span>Turnaround Time:</span>
+                  <span id="estimate-time">25 – 45 Minutes</span>
+                </div>
+                <div class="result-note">✓ 90-Day Full Warranty • No Fix = No Fee Guarantee</div>
+              </div>
+
+              <button class="btn btn-primary btn-block" onclick="openModal('book-modal')">Book This Service Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="container section-spacing" aria-labelledby="home-trade-title">
+        <div class="showcase-header">
+          <span class="badge badge-accent">Buy · Sell · Swap</span>
+          <h2 id="home-trade-title">Find your next device or trade the one you have</h2>
+          <p class="section-intro">Shop available devices, sell a phone or computer you no longer need, or trade it towards an upgrade.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="service-card home-trade-card">
+            <div>
+              <span class="feature-icon" aria-hidden="true">🛍️</span>
+              <h3>Buy a device</h3>
+              <p>Looking for a new-to-you phone, laptop, or gadget? Browse our device pages and contact us to confirm current stock, condition, and pricing.</p>
+              <div class="home-trade-links" aria-label="Browse devices">
+                <a class="btn btn-outline btn-sm" href="#phones" onclick="showPage('phones')">Phones</a>
+                <a class="btn btn-outline btn-sm" href="#laptops" onclick="showPage('laptops')">Laptops</a>
+                <a class="btn btn-outline btn-sm" href="#gadgets" onclick="showPage('gadgets')">Gadgets</a>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="showPage('phones')">Browse devices</button>
+          </article>
+
+          <article class="service-card home-trade-card">
+            <div>
+              <span class="feature-icon" aria-hidden="true">💰</span>
+              <h3>Sell your device</h3>
+              <p>Have a phone, laptop, or gadget to sell? Tell us its make, model, and condition so we can assess it and discuss an offer.</p>
+              <div class="home-trade-links" aria-label="Device categories">
+                <a class="btn btn-outline btn-sm" href="#phones" onclick="showPage('phones')">Phones</a>
+                <a class="btn btn-outline btn-sm" href="#laptops" onclick="showPage('laptops')">Laptops</a>
+                <a class="btn btn-outline btn-sm" href="#gadgets" onclick="showPage('gadgets')">Gadgets</a>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="handlePurchase('I want to sell a phone, laptop, or gadget')">Ask about selling</button>
+          </article>
+
+          <article class="service-card home-trade-card">
+            <div>
+              <span class="feature-icon" aria-hidden="true">⇄</span>
+              <h3>Swap or trade in</h3>
+              <p>Trade your current device towards another one. Swap value depends on its model and condition, which we’ll assess with you.</p>
+              <div class="home-trade-links" aria-label="Device categories">
+                <a class="btn btn-outline btn-sm" href="#phones" onclick="showPage('phones')">Phones</a>
+                <a class="btn btn-outline btn-sm" href="#laptops" onclick="showPage('laptops')">Laptops</a>
+                <a class="btn btn-outline btn-sm" href="#gadgets" onclick="showPage('gadgets')">Gadgets</a>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="handlePurchase('I want to swap a phone, laptop, or gadget')">Ask about a swap</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Quick 3 Pillars Cards -->
+      <div class="container section-spacing">
+        <div class="grid grid-3">
+          <div class="feature-card" onclick="showPage('repairs')">
+            <div class="feature-icon">📱</div>
+            <h3>Phone repairs</h3>
+            <p>From cracked screens and charging faults to software issues, board work, and water damage.</p>
+            <span class="card-link">Explore repair services →</span>
+          </div>
+
+          <div class="feature-card" onclick="showPage('parts')">
+            <div class="feature-icon">💻</div>
+            <h3>Laptops, gadgets & spare parts</h3>
+            <p>Search by part, model, or device category and ask for current stock, pricing, and compatibility details.</p>
+            <span class="card-link">Browse the parts shop →</span>
+          </div>
+
+          <div class="feature-card" onclick="showPage('technicians')">
+            <div class="feature-icon">🧰</div>
+            <h3>Technician supply desk</h3>
+            <p>Order displays, batteries, charging ports, ICs, tools, software fixes, and other repair essentials.</p>
+            <span class="card-link">Open technician desk →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container section-spacing">
+        <div class="showcase-header">
+          <span class="badge badge-accent">What we do</span>
+          <h2>Solutions built for everyday tech life</h2>
+        </div>
+        <div class="grid grid-3" id="home-showcase-grid">
+          <article class="showcase-card">
+            <div class="showcase-image">
+              <a href="#phones" aria-label="Browse phones for sale" onclick="showPage('phones')">
+                <img src="Phones for Sell.jpg" alt="Phones for sale" />
+              </a>
+            </div>
+            <h3>Phone sales</h3>
+            <p>Quality phones for different budgets, from trusted brands and easy-to-check models.</p>
+          </article>
+
+          <article class="showcase-card">
+            <div class="showcase-image">
+              <a href="#repairs" aria-label="View phone repair services" onclick="showPage('repairs')">
+                <img src="Phone Repair.jpg" alt="Phone repair" />
+              </a>
+            </div>
+            <h3>Phone repair</h3>
+            <p>Screen, charging, battery, software, and board-level fixes handled with careful diagnostics.</p>
+          </article>
+
+          <article class="showcase-card">
+            <div class="showcase-image">
+              <a href="#laptops" aria-label="Browse laptops for sale" onclick="showPage('laptops')">
+                <img src="Laptop for sell.jpg" alt="Laptop sales" />
+              </a>
+            </div>
+            <h3>Laptop sales</h3>
+            <p>Business, student, and gaming laptops to suit different needs and budgets.</p>
+          </article>
+
+          <article class="showcase-card">
+            <div class="showcase-image">
+              <a href="#laptops" aria-label="View laptop repair services" onclick="showPageAndScroll('laptops', 'laptop-repair-options')">
+                <img src="Laptop repair.jpg" alt="Laptop repair service" />
+              </a>
+            </div>
+            <h3>Laptop repairs</h3>
+            <p>Screen, battery, keyboard, charging, software, and motherboard repairs, plus upgrades and spare parts.</p>
+          </article>
+
+          <article class="showcase-card">
+            <div class="showcase-image">
+              <a href="#gadgets" aria-label="Browse accessories and gadgets" onclick="showPage('gadgets')">
+                <img src="Assessories.jpg" alt="Accessories and gadgets" />
+              </a>
+            </div>
+            <h3>Accessories & gadgets</h3>
+            <p>Chargers, cables, tools, gaming gear, and other essential tech items that keep devices working.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- SECTION TOWARDS THE MIDDLE: ABOUT INFINITY TECHNOLOGY FIX     -->
+      <!-- ============================================================== -->
+      <section class="about-middle-section">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-left">
+              <span class="badge badge-accent">The ITECH Fix Difference</span>
+              <h2>About Infinity Technology Fix (ITECH Fix)</h2>
+              <p class="about-lead">
+                Where hardware engineering precision meets honest, customer-focused service.
+              </p>
+              <p>
+                Founded by electronics engineers and micro-soldering specialists, <strong>Infinity Technology Fix</strong> was established to fix what other repair centers claim is impossible. We service phones, laptops, and other gadgets, and we also stock dependable spare parts and upgrade items for customers and technicians who need reliable solutions.
+              </p>
+              <div class="about-features">
+                <div class="about-feature-item">
+                  <div class="feat-bullet">🔬</div>
+                  <div>
+                    <h4>Component-Level Micro-Soldering</h4>
+                    <p>We work under 45x optical stereo microscopes to save motherboards and recover irreplaceable memories.</p>
+                  </div>
+                </div>
+                <div class="about-feature-item">
+                  <div class="feat-bullet">🛡️</div>
+                  <div>
+                    <h4>Strict Data Privacy & Honesty</h4>
+                    <p>Your photos, messages, and files remain untouched. We believe in transparency and the Right to Repair.</p>
+                  </div>
+                </div>
+                <div class="about-feature-item">
+                  <div class="feat-bullet">🔄</div>
+                  <div>
+                    <h4>Sustainable Gadget Swaps</h4>
+                    <p>Trade your broken or older phone for immediate cash or store credit toward certified upgraded devices.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-right">
+              <div class="card card-dark lab-card">
+                <div class="lab-card-header">
+                  <span class="badge">LAB_SPEC_V1</span>
+                  <span>Cleanroom Environment</span>
+                </div>
+                <div class="lab-specs">
+                  <div class="spec-row">
+                    <span>Optical Zoom:</span>
+                    <strong>45x Stereo Trinocular</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Diagnostics:</span>
+                    <strong>FLIR Infrared Thermal Imaging</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Decontamination:</span>
+                    <strong>40kHz Ultrasonic Chemical Cavitation</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Warranty:</span>
+                    <strong>90-Day Full Protection Included</strong>
+                  </div>
+                </div>
+                <div class="lab-quote">
+                  &ldquo;Our promise: No Fix, No Diagnostic Fee. If our engineers cannot revive your equipment, you pay nothing.&rdquo;
+                </div>
+                <button class="btn btn-primary btn-block" onclick="openModal('book-modal')">Visit or Mail In Your Device</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Testimonials -->
+      <div class="container section-spacing">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div id="customer-reviews-grid" class="grid grid-3">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>&ldquo;Two other shops said my iPhone 15 Pro Max logic board was dead. Dave at ITECH Fix found the shorted capacitor under the microscope and fixed it in 2 hours with all my photos intact!&rdquo;</p>
+            <div class="reviewer">— ITECH Fix customer</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>&ldquo;Spilled water on my MacBook right before my final year project deadline. They stripped the board, put it through their ultrasonic alcohol wash, and saved my laptop. Amazing service!&rdquo;</p>
+            <div class="reviewer">— ITECH Fix customer</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>&ldquo;Traded my cracked Galaxy S22 for an upgraded S24 Ultra with their swap program. Got way more credit than carrier trade-in, plus bought their 65W GaN fast charger.&rdquo;</p>
+            <div class="reviewer">— ITECH Fix customer</div>
+          </div>
+        </div>
+
+        <div class="review-post-box">
+          <h3>Leave a Review</h3>
+          <form id="review-form" onsubmit="submitReview(event)">
+            <div class="review-form-grid">
+              <div class="form-group review-input-group">
+                <label>Name</label>
+                <input type="text" id="review-name" placeholder="Type your name here" required />
+              </div>
+              <div class="form-group review-input-group">
+                <label>Rating</label>
+                <select id="review-rating" required>
+                  <option value="5">★★★★★</option>
+                  <option value="4">★★★★☆</option>
+                  <option value="3">★★★☆☆</option>
+                  <option value="2">★★☆☆☆</option>
+                  <option value="1">★☆☆☆☆</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Your Review</label>
+              <textarea id="review-message" rows="4" placeholder="Tell other buyers about your experience with ITECH Fix..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Review</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 2. PHONES PAGE                                                 -->
+    <!-- ============================================================== -->
+    <section id="page-phones" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">Mobile Technology Center</span>
+          <h1>Phones for Sale, Repairs & Spare Parts</h1>
+          <p>Shop or service iPhone, Samsung Galaxy, Google Pixel, Xiaomi, OnePlus, Tecno and Infinix phones. Ask us about screens, batteries, charging parts and other replacements.</p>
+        </div>
+      </div>
+
+      <div class="container section-spacing">
+        <div class="phone-shop-section">
+          <h2 class="section-title">Phones for Sale — Order from ITECH Fix</h2>
+          <p class="section-intro">Choose a phone category below to enquire and place an order through WhatsApp. Ask us to confirm the model, storage, condition, current price and delivery or pickup options before payment.</p>
+          <div class="grid grid-3">
+            <div class="product-card">
+              <div class="product-visual"><img src="Phones for Sell.jpg" alt="Phone for sale" /></div>
+              <div class="product-tag">Apple</div>
+              <h3>iPhone</h3>
+              <p class="product-desc">Ask about available iPhone models, storage options and new or pre-owned condition.</p>
+              <div class="product-foot">
+                <span class="price">Ask for current price</span>
+                <button class="btn btn-sm btn-primary" onclick="handlePurchase('iPhone — specify model, storage and condition')">Order via WhatsApp</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-visual"><img src="Phones for Sell.jpg" alt="Samsung phone for sale" /></div>
+              <div class="product-tag">Samsung</div>
+              <h3>Samsung Galaxy</h3>
+              <p class="product-desc">Ask about available Galaxy S, A and other series models, storage and condition.</p>
+              <div class="product-foot">
+                <span class="price">Ask for current price</span>
+                <button class="btn btn-sm btn-primary" onclick="handlePurchase('Samsung Galaxy phone — specify model, storage and condition')">Order via WhatsApp</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-visual"><img src="Phones for Sell.jpg" alt="Tecno phone for sale" /></div>
+              <div class="product-tag">Tecno</div>
+              <h3>Tecno Smartphones</h3>
+              <p class="product-desc">Ask about available Tecno models, storage options and new or pre-owned condition.</p>
+              <div class="product-foot">
+                <span class="price">Ask for current price</span>
+                <button class="btn btn-sm btn-primary" onclick="handlePurchase('Tecno smartphone — specify model, storage and condition')">Order via WhatsApp</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-visual"><img src="Phones for Sell.jpg" alt="Infinix phone for sale" /></div>
+              <div class="product-tag">Infinix</div>
+              <h3>Infinix Smartphones</h3>
+              <p class="product-desc">Ask about available Infinix models, storage options and new or pre-owned condition.</p>
+              <div class="product-foot">
+                <span class="price">Ask for current price</span>
+                <button class="btn btn-sm btn-primary" onclick="handlePurchase('Infinix smartphone — specify model, storage and condition')">Order via WhatsApp</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-visual"><img src="Phones for Sell.jpg" alt="Android phone for sale" /></div>
+              <div class="product-tag">More Brands</div>
+              <h3>Other Android Phones</h3>
+              <p class="product-desc">Looking for Google Pixel, Xiaomi, OnePlus or another Android brand? Send us your request.</p>
+              <div class="product-foot">
+                <span class="price">Ask for current price</span>
+                <button class="btn btn-sm btn-primary" onclick="handlePurchase('Android phone — specify brand, model, storage and condition')">Order via WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterPhoneServices('all')">All Services</button>
+          <button class="filter-btn" onclick="filterPhoneServices('hardware')">Hardware Repairs</button>
+          <button class="filter-btn" onclick="filterPhoneServices('software')">Software & Bootloop</button>
+        </div>
+
+        <div class="cta-banner">
+          <div>
+            <h3>Need a Phone Spare Part?</h3>
+            <p>Ask about screens, batteries, charging parts and other replacements for your phone model.</p>
+          </div>
+          <button class="btn btn-primary" onclick="handlePurchase('Phone spare parts — please specify your phone model and part')">Ask About Parts</button>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Service Card 1 -->
+          <div class="service-card phone-service" data-cat="hardware">
+            <div class="service-head">
+              <span class="service-icon">📱</span>
+              <span class="service-price">From ₦73,500</span>
+            </div>
+            <h3>Precision Screen & OLED Replacement</h3>
+            <p>OEM-grade vibrant OLED displays. Includes TrueTone transfer, 120Hz ProMotion calibration, and water-resistance gasket renewal.</p>
+            <ul class="service-list">
+              <li>✓ TrueTone & Auto-Brightness Restored</li>
+              <li>✓ Original 120Hz refresh rate calibration</li>
+              <li>✓ 30-45 Minutes Express Turnaround</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Screen & OLED Replacement')">Book Screen Fix</button>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card phone-service" data-cat="hardware">
+            <div class="service-head">
+              <span class="service-icon">🔋</span>
+              <span class="service-price">From ₦52,500</span>
+            </div>
+            <h3>Certified Battery Replacement & Calibration</h3>
+            <p>Revive all-day battery life with brand-new, zero-cycle high-density cobalt cells with battery management BMS preservation.</p>
+            <ul class="service-list">
+              <li>✓ 100% Health reporting in iOS/Android</li>
+              <li>✓ Texas Instruments safety microcontroller</li>
+              <li>✓ 20-30 Minutes Fast Installation</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Battery Replacement')">Book Battery Fix</button>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card phone-service" data-cat="hardware">
+            <div class="service-head">
+              <span class="service-icon">🔬</span>
+              <span class="service-price">From ₦118,500</span>
+            </div>
+            <h3>Motherboard IC Micro-Soldering</h3>
+            <p>Component-level repair under 45x magnification for dead logic boards, VDD shorts, Audio IC failure, and no-charge conditions.</p>
+            <ul class="service-list">
+              <li>✓ Infrared thermal camera fault pinpointing</li>
+              <li>✓ 100% Data preservation priority</li>
+              <li>✓ 180-Day Micro-soldering Guarantee</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Motherboard Micro-soldering')">Book Board Repair</button>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card phone-service" data-cat="hardware">
+            <div class="service-head">
+              <span class="service-icon">⚡</span>
+              <span class="service-price">From ₦45,000</span>
+            </div>
+            <h3>USB-C & Lightning Port Replacement</h3>
+            <p>Fix loose charging cords, moisture alerts, slow charging, and microphone muffled voice calls with a clean flex assembly.</p>
+            <ul class="service-list">
+              <li>✓ Fast-charging PD protocol tested</li>
+              <li>✓ Dual microphones & antenna checked</li>
+              <li>✓ Same-day 45 min service</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Charging Port & Mic')">Book Port Repair</button>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div class="service-card phone-service" data-cat="software">
+            <div class="service-head">
+              <span class="service-icon">💻</span>
+              <span class="service-price">From ₦43,500</span>
+            </div>
+            <h3>OS Firmware Flashing & Bootloop Fix</h3>
+            <p>Revive phones stuck on Apple logo, boot loops, restart cycles, or Qualcomm 9008 EDL emergency mode using official signed firmware.</p>
+            <ul class="service-list">
+              <li>✓ Partition table repair without data loss</li>
+              <li>✓ Official manufacturer signed updates</li>
+              <li>✓ Fast 30-60 minute turnaround</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Firmware Flashing & Bootloop')">Book Software Fix</button>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div class="service-card phone-service" data-cat="software">
+            <div class="service-head">
+              <span class="service-icon">🛡️</span>
+              <span class="service-price">From ₦52,500</span>
+            </div>
+            <h3>FRP & Account Diagnostic Assistance</h3>
+            <p>Assistance recovering devices locked out due to forgotten credentials, family hand-me-downs, or recovery mode issues.</p>
+            <ul class="service-list">
+              <li>✓ Strict ownership verification standard</li>
+              <li>✓ Google Play & Knox security integrity</li>
+              <li>✓ Lifetime service guarantee</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'FRP & Account Recovery')">Request Assistance</button>
+          </div>
+        </div>
+
+        <!-- Phone Swap Callout -->
+        <div class="cta-banner">
+          <div>
+            <h3>Want to Swap Your Broken Phone for an Upgrade?</h3>
+            <p>We accept phones in any condition (cracked, locked, or dead) with an instant 15% trade-in bonus.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openModal('swap-modal')">Calculate Swap Value</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 3. LAPTOPS PAGE                                                -->
+    <!-- ============================================================== -->
+    <section id="page-laptops" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">MacBook & PC Engineering Lab</span>
+          <h1>Laptops for Sale, Repairs & Spare Parts</h1>
+          <p>Shop or service MacBook, Dell, Lenovo, HP, Asus and other laptops. Ask about replacement screens, batteries, keyboards, chargers, upgrades and other parts.</p>
+        </div>
+      </div>
+
+      <div class="container section-spacing">
+        <h2 class="section-title">Laptops for Sale — Order from ITECH Fix</h2>
+        <p class="section-intro">Choose a category to enquire and place an order through WhatsApp. Tell us your preferred brand, model, specifications and condition; we’ll confirm availability, price and delivery or pickup options.</p>
+        <div class="grid grid-3">
+          <div class="product-card">
+            <div class="product-visual"><img src="Laptop for sell.jpg" alt="MacBook and laptop for sale" /></div>
+            <div class="product-tag">Apple</div>
+            <h3>MacBook</h3>
+            <p class="product-desc">Ask about available MacBook Air and MacBook Pro models and configurations.</p>
+            <div class="product-foot">
+              <span class="price">Ask for current price</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('MacBook — specify Air or Pro, model, specifications and condition')">Order via WhatsApp</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-visual"><img src="Dell Laptop for sell 2.jpg" alt="Dell laptop for sale" /></div>
+            <div class="product-tag">Windows</div>
+            <h3>Dell, HP & Lenovo Laptops</h3>
+            <p class="product-desc">Ask about available business, student and everyday laptop models.</p>
+            <div class="product-foot">
+              <span class="price">Ask for current price</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('Windows laptop — specify brand, model and preferred specifications')">Order via WhatsApp</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-visual"><img src="Laptop for sell.jpg" alt="Gaming laptop for sale" /></div>
+            <div class="product-tag">Gaming</div>
+            <h3>Gaming Laptops</h3>
+            <p class="product-desc">Ask about gaming laptop availability and configurations that match your needs.</p>
+            <div class="product-foot">
+              <span class="price">Ask for current price</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('Gaming laptop — specify preferred brand and specifications')">Order via WhatsApp</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-banner">
+          <div>
+            <h3>Looking for a Laptop Spare Part or Upgrade?</h3>
+            <p>Ask about screens, batteries, keyboards, chargers, SSDs, memory and other parts for your laptop model.</p>
+          </div>
+          <button class="btn btn-primary" onclick="handlePurchase('Laptop spare part or upgrade — please specify brand, model and part')">Ask About Parts</button>
+        </div>
+        <div class="grid grid-3" id="laptop-repair-options">
+          <!-- Laptop Service 1 -->
+          <div class="service-card">
+            <div class="service-visual"><img src="Laptop repair.jpg" alt="Laptop screen repair" /></div>
+            <div class="service-head">
+              <span class="service-icon">🖥️</span>
+              <span class="service-price">From ₦133,500</span>
+            </div>
+            <h3>Retina & 4K Laptop Screen Replacement</h3>
+            <p>Direct replacement for shattered laptop screens, distorted lines, backlight bleed, and flexgate cable failures.</p>
+            <ul class="service-list">
+              <li>✓ Factory calibrated IPS / OLED panels</li>
+              <li>✓ TrueTone & color profiles preserved</li>
+              <li>✓ Bezel & hinge tension adjustment</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Laptop', 'Screen Replacement')">Book Screen Repair</button>
+          </div>
+
+          <!-- Laptop Service 2 -->
+          <div class="service-card">
+            <div class="service-visual service-visual-pair">
+              <img src="Motherboard Cleaning.jpg" alt="Cleaned computer motherboard" />
+              <img src="download (99).jpg" alt="Motherboard being cleaned" />
+            </div>
+            <div class="service-head">
+              <span class="service-icon">🔬</span>
+              <span class="service-price">From ₦148,500</span>
+            </div>
+            <h3>MacBook & PC Motherboard Logic Board Repair</h3>
+            <p>Micro-soldering repair for no power, 5V stuck on USB-C, shorted capacitors, liquid spills, and CD3217 controller failures.</p>
+            <ul class="service-list">
+              <li>✓ Saves up to 70% vs Apple board replacement</li>
+              <li>✓ Keeps 100% of your internal SSD data</li>
+              <li>✓ 180-Day Warranty on board repairs</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Laptop', 'Logic Board Micro-Soldering')">Book Board Repair</button>
+          </div>
+
+          <!-- Laptop Service 3 -->
+          <div class="service-card">
+            <div class="service-visual"><img src="Battery Replacement.jpg" alt="Laptop battery replacement" /></div>
+            <div class="service-head">
+              <span class="service-icon">🔋</span>
+              <span class="service-price">From ₦88,500</span>
+            </div>
+            <h3>Internal Battery Replacement & Calibration</h3>
+            <p>Safe replacement of swollen or service-recommended batteries. Prevents chassis bending and trackpad jamming.</p>
+            <ul class="service-list">
+              <li>✓ Grade-A tier cells with genuine BMS chip</li>
+              <li>✓ Safe chemical adhesive dissolution</li>
+              <li>✓ Trackpad clearance calibrated</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Laptop', 'Battery Replacement')">Book Battery Repair</button>
+          </div>
+
+          <!-- Laptop Service 4 -->
+          <div class="service-card">
+            <div class="service-visual"><img src="Dirty_Dusty & Cleaned Laptop Fan.jpg" alt="Dusty laptop fan for cleaning and servicing" /></div>
+            <div class="service-head">
+              <span class="service-icon">❄️</span>
+              <span class="service-price">From ₦58,500</span>
+            </div>
+            <h3>Honeywell PTM7950 Thermal Repaste & Fan Clean</h3>
+            <p>Eliminate thermal throttling, lower CPU/GPU temps by 15-25°C, and quiet down screaming fans with phase-change pads.</p>
+            <ul class="service-list">
+              <li>✓ Drops temperatures by 15°C to 25°C</li>
+              <li>✓ Ultrasonic decontamination of fan turbines</li>
+              <li>✓ Before & after benchmark logs</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Laptop', 'Thermal Repaste & Cleaning')">Book Thermal Service</button>
+          </div>
+
+          <!-- Laptop Service 5 -->
+          <div class="service-card">
+            <div class="service-visual"><img src="The missing drive.jpg" alt="Laptop drive and internal components" /></div>
+            <div class="service-head">
+              <span class="service-icon">🚀</span>
+              <span class="service-price">From ₦82,500</span>
+            </div>
+            <h3>High-Speed Gen4 NVMe SSD & RAM Upgrade</h3>
+            <p>Multiply system responsiveness and storage with ultra-fast NVMe drives and memory kit upgrades with 1:1 bitstream cloning.</p>
+            <ul class="service-list">
+              <li>✓ Speeds up to 7,400MB/s Gen4 NVMe</li>
+              <li>✓ Exact 1:1 drive cloning (Zero data loss)</li>
+              <li>✓ 3-Year Manufacturer Drive Warranty</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Laptop', 'SSD & RAM Upgrade')">Book Speed Upgrade</button>
+          </div>
+
+          <!-- Laptop Service 6 -->
+          <div class="service-card">
+            <div class="service-head">
+              <span class="service-icon">⌨️</span>
+              <span class="service-price">From ₦73,500</span>
+            </div>
+            <h3>Keyboard, Backlight & Haptic Trackpad Repair</h3>
+            <p>Fix sticky, non-responsive keys, damaged backlights, and erratic trackpad clicks caused by spills or dust.</p>
+            <ul class="service-list">
+              <li>✓ Tactile keystrokes restored</li>
+              <li>✓ Even LED backlight distribution</li>
+              <li>✓ Full debris deoxidation</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="bookSpecific('Laptop', 'Keyboard & Trackpad')">Book Keyboard Fix</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 4. GADGETS & ACCESSORIES PAGE                                  -->
+    <!-- ============================================================== -->
+    <section id="page-gadgets" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">Store & Servicing</span>
+          <h1>Gadgets, Gaming Gear & Accessories</h1>
+          <p>Explore chargers, cables, audio accessories, gaming gear such as PS5 consoles and controllers, and other gadgets. Contact us to confirm availability and prices.</p>
+        </div>
+      </div>
+
+      <div class="container section-spacing">
+        <h2 class="section-title">Shop Gadgets & Accessories</h2>
+        <p class="section-intro">Choose a product below and select Order via WhatsApp to enquire. We’ll confirm stock, final price and delivery or pickup details.</p>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterGadgetProducts('all')">All Gear</button>
+          <button class="filter-btn" onclick="filterGadgetProducts('parts')">Spare Parts</button>
+          <button class="filter-btn" onclick="filterGadgetProducts('gaming')">Gaming</button>
+          <button class="filter-btn" onclick="filterGadgetProducts('chargers')">Fast Chargers & Cables</button>
+          <button class="filter-btn" onclick="filterGadgetProducts('tools')">Repair Toolkits</button>
+          <button class="filter-btn" onclick="filterGadgetProducts('service')">Gadget Servicing</button>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="product-card gadget-item" data-cat="gaming">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Gaming accessories" /></div>
+            <div class="product-tag">Gaming</div>
+            <h3>PS5 Consoles & Accessories</h3>
+            <p class="product-desc">Ask about PlayStation 5 consoles, controllers, headsets and other gaming accessories.</p>
+            <div class="product-foot">
+              <span class="price">Ask for availability</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('PS5 consoles and gaming accessories')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <div class="product-card gadget-item" data-cat="gaming">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Gaming controller and headset" /></div>
+            <div class="product-tag">Gaming Accessories</div>
+            <h3>Controllers, Headsets & More</h3>
+            <p class="product-desc">Message us about gaming controllers, headsets and compatible accessories for your setup.</p>
+            <div class="product-foot">
+              <span class="price">Ask for availability</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('Gaming controllers, headsets and accessories')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Product 1 -->
+          <div class="product-card gadget-item" data-cat="parts">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Phone display part" /></div>
+            <div class="product-tag">OEM Display</div>
+            <h3>iPhone 15 Pro OLED Assembly</h3>
+            <p class="product-desc">Authentic Super Retina XDR OLED with ProMotion 120Hz support and pre-installed copper shielding.</p>
+            <div class="product-foot">
+              <span class="price">₦209,985</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('iPhone 15 Pro OLED Assembly')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card gadget-item" data-cat="parts">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Smartphone display part" /></div>
+            <div class="product-tag">OEM Display</div>
+            <h3>Galaxy S24 Ultra AMOLED + Titanium Frame</h3>
+            <p class="product-desc">Original Corning Gorilla Armor anti-reflective 120Hz display pre-seated in factory frame.</p>
+            <div class="product-foot">
+              <span class="price">₦284,985</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('Galaxy S24 Ultra AMOLED + Titanium Frame')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card gadget-item" data-cat="chargers">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Fast charger accessories" /></div>
+            <div class="product-tag">GaN Fast Power</div>
+            <h3>ITECH GaN 100W Dual USB-C + USB-A Charger</h3>
+            <p class="product-desc">Charges MacBook Pro and fast-charges phones simultaneously with Gallium Nitride III efficiency.</p>
+            <div class="product-foot">
+              <span class="price">₦67,485</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('ITECH GaN 100W Dual USB-C + USB-A Charger')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card gadget-item" data-cat="chargers">
+            <div class="product-visual"><img src="Assessories.jpg" alt="USB-C cable accessories" /></div>
+            <div class="product-tag">Indestructible</div>
+            <h3>Rugged Kevlar 240W USB-C 2M Cable</h3>
+            <p class="product-desc">Certified 240W E-Marker smart chip. Tested for 40,000+ bends with DuPont Kevlar reinforcement.</p>
+            <div class="product-foot">
+              <span class="price">₦28,485</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('Rugged Kevlar 240W USB-C 2M Cable')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="product-card gadget-item" data-cat="tools">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Repair toolkit" /></div>
+            <div class="product-tag">iFixit Grade</div>
+            <h3>Master 64-in-1 Precision Screwdriver Set</h3>
+            <p class="product-desc">CNC S2 hardened steel bits for iPhone Pentalobe, MacBook Torx, Nintendo tri-wing, and eyeglasses.</p>
+            <div class="product-foot">
+              <span class="price">₦52,485</span>
+              <button class="btn btn-sm btn-primary" onclick="handlePurchase('Master 64-in-1 Precision Screwdriver Set')">Order via WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="product-card gadget-item" data-cat="service">
+            <div class="product-visual"><img src="Assessories.jpg" alt="Gadget service" /></div>
+            <div class="product-tag">Gadget Servicing</div>
+            <h3>AirPods Pro Battery Renewal Service (Pair)</h3>
+            <p class="product-desc">Don't discard ₦373,500 earbuds! We micro-solder fresh button cells inside both pods with acoustic seal.</p>
+            <div class="product-foot">
+              <span class="price">₦67,500</span>
+              <button class="btn btn-sm btn-primary" onclick="bookSpecific('AirPods Pro', 'Earbud Battery Renewal')">Book Service</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Need Installation Help -->
+        <div class="cta-banner">
+          <div>
+            <h3>Need Us to Install the Spare Part for You?</h3>
+            <p>Order any part and have our certified engineers professionally assemble it with a 90-day guarantee.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openModal('book-modal')">Schedule Installation</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-swap" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">Buy · Fix · Sell · Swap</span>
+          <h1>Trade in your phone, laptop, or gadget.</h1>
+          <p>We buy and swap phones, laptops, and gadgets in working, damaged, or scrap condition. Tell us what you have and what you’re looking for; we’ll inspect it and discuss the available options.</p>
+          <button class="btn btn-primary" onclick="handlePurchase('I want to buy, sell, or swap a phone, laptop, or gadget')">Ask about a swap</button>
+        </div>
+      </div>
+      <div class="container section-spacing">
+        <div class="grid grid-3">
+          <article class="service-card">
+            <span class="feature-icon" aria-hidden="true">⇄</span>
+            <h2>Swap or trade in</h2>
+            <p>Trade a phone, laptop, or gadget towards another device. Swap value depends on condition, model, and inspection.</p>
+            <button class="btn btn-primary btn-block" onclick="handlePurchase('I want to swap a device')">Discuss a device swap</button>
+          </article>
+          <article class="service-card">
+            <span class="feature-icon" aria-hidden="true">♲</span>
+            <h2>Sell your device</h2>
+            <p>We consider new, used, faulty, and scrap phones, laptops, and gadgets. Share the model and condition for an assessment.</p>
+            <button class="btn btn-primary btn-block" onclick="handlePurchase('I want to sell a phone, laptop, or gadget')">Get a selling assessment</button>
+          </article>
+          <article class="service-card">
+            <span class="feature-icon" aria-hidden="true">✓</span>
+            <h2>Buy a device</h2>
+            <p>Ask about available phones, laptops, and gadgets. We’ll confirm current stock, condition, and price before you visit.</p>
+            <button class="btn btn-primary btn-block" onclick="showPage('phones')">Browse phones</button>
+          </article>
+        </div>
+        <div class="cta-banner">
+          <div>
+            <h2>Have a device to trade?</h2>
+            <p>Message us with the make, model, a short description of its condition, and the device you want.</p>
+          </div>
+          <button class="btn btn-primary" onclick="handlePurchase('I have a phone, laptop, or gadget to sell or swap')">Start a trade-in enquiry</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-repairs" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">Phone Repair Services</span>
+          <h1>Careful diagnosis. The right repair.</h1>
+          <p>From common replacements to board-level faults, tell us your phone model and symptoms. We’ll confirm the diagnosis, price, and turnaround before work begins.</p>
+          <button class="btn btn-primary" onclick="openModal('book-modal')">Book a repair</button>
+        </div>
+      </div>
+      <div class="container section-spacing">
+        <div class="grid grid-3 repair-service-grid">
+          <article class="service-card"><div class="service-visual"><img src="Phone Repair.jpg" alt="Phone screen repair" /></div><div class="service-head"><span class="service-icon">▣</span><span class="service-price">Quote by model</span></div><h3>Screen replacement</h3><p>Cracked glass, display lines, touch faults, and damaged OLED or LCD assemblies.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Screen replacement')">Book screen repair</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Screen replacement service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">ϟ</span><span class="service-price">Quote by model</span></div><h3>Charging-port repair</h3><p>Loose connectors, intermittent charging, port damage, and related flex faults.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Charging-port repair')">Book port repair</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Charging-port repair service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">⌘</span><span class="service-price">Quote by issue</span></div><h3>Software & OS repair</h3><p>System errors, update failures, boot loops, setup support, and software restoration.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Software / OS repair')">Request software help</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Software / OS repair service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">⌬</span><span class="service-price">After diagnosis</span></div><h3>IC & motherboard repair</h3><p>Board diagnostics and component-level repair for no-power, no-charge, and related faults.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'IC / motherboard repair')">Book board diagnosis</button><button class="btn btn-outline btn-block" onclick="handlePurchase('IC / motherboard repair service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">◉</span><span class="service-price">Quote by model</span></div><h3>Network & unlock services</h3><p>Network troubleshooting and eligible device unlock support, subject to ownership checks.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Network / unlock service')">Ask about network help</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Network / unlock service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">⌁</span><span class="service-price">After inspection</span></div><h3>Water-damage repair</h3><p>Prompt inspection, safe cleaning, and board-level assessment after liquid exposure.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Water-damage repair')">Book water-damage check</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Water-damage repair service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">▰</span><span class="service-price">Quote by model</span></div><h3>Battery replacement</h3><p>Battery diagnostics and replacement for poor health, swelling, or short runtime.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Battery replacement')">Book battery repair</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Battery replacement service')">WhatsApp about this service</button></article>
+          <article class="service-card"><div class="service-head"><span class="service-icon">✳</span><span class="service-price">Tell us the fault</span></div><h3>Specialized repairs</h3><p>Camera, speaker, microphone, flex cable, buttons, and other device-specific faults.</p><button class="btn btn-primary btn-block" onclick="bookSpecific('Smartphone', 'Other specialized repair')">Describe your issue</button><button class="btn btn-outline btn-block" onclick="handlePurchase('Other specialized phone repair')">WhatsApp about this service</button></article>
+        </div>
+        <div class="cta-banner"><div><h3>Not sure what’s wrong?</h3><p>Send the model and symptoms on WhatsApp and we’ll help you choose the next step.</p></div><a class="btn btn-primary" href="https://wa.me/2348120268491?text=Hello%20ITECH%20Fix%2C%20I%20need%20help%20diagnosing%20my%20phone." target="_blank" rel="noopener">Chat with a technician</a></div>
+      </div>
+    </section>
+
+    <section id="page-parts" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">Phone Parts & Accessories</span>
+          <h1>Find the part for your repair.</h1>
+          <p>Search by part name or phone model. Listed prices and stock are guides; confirm exact compatibility and availability before payment.</p>
+        </div>
+      </div>
+      <div class="container section-spacing parts-layout">
+        <div class="parts-main">
+          <div class="shop-toolbar">
+            <label class="shop-search"><span>Search parts</span><input id="product-search" type="search" placeholder="e.g. A15 screen, iPhone 11 battery" oninput="renderProducts()" /></label>
+            <label class="shop-select"><span>Phone model</span><select id="model-filter" onchange="renderProducts()"><option value="all">All models</option><option>Samsung A15</option><option>iPhone 11</option><option>Redmi Note 12</option><option>Universal</option></select></label>
+            <label class="shop-select"><span>Category</span><select id="category-filter" onchange="renderProducts()"><option value="all">All categories</option><option value="Displays">Displays / screens</option><option value="Batteries">Batteries</option><option value="Charging ports">Charging ports</option><option value="Cameras">Cameras</option><option value="Flex cables">Flex cables</option><option value="Motherboards & ICs">Motherboards & ICs</option><option value="Audio">Speakers / microphones</option><option value="Tools">Tools</option><option value="Accessories">Accessories</option></select></label>
+          </div>
+          <div class="shop-result-line"><span id="product-count" aria-live="polite"></span><span>Prices in Nigerian naira</span></div>
+          <div id="product-grid" class="grid grid-3 shop-grid"></div>
+        </div>
+        <aside class="cart-panel" aria-label="Shopping cart">
+          <div class="cart-heading"><h2>Your order</h2><span id="cart-count">0 items</span></div>
+          <div id="cart-items" class="cart-items"><p class="cart-empty">Your cart is empty.</p></div>
+          <div class="cart-total"><span>Estimated total</span><strong id="cart-total">₦0</strong></div>
+          <button class="btn btn-primary btn-block" id="checkout-button" onclick="checkoutCart()" disabled>Order on WhatsApp</button>
+          <p class="cart-note">Stock, compatibility, delivery, and final price are confirmed with our team.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="page-technicians" class="page-section">
+      <div class="page-header">
+        <div class="container">
+          <span class="badge">Engineer / Technician Desk</span>
+          <h1>Parts and support for your bench.</h1>
+          <p>Source phone components and request software services. Send your model, part code, quantity, and destination for a quick availability check.</p>
+          <a class="btn btn-primary" href="https://wa.me/2348120268491?text=Hello%20ITECH%20Fix%2C%20I%20am%20a%20technician%20and%20would%20like%20to%20make%20an%20order." target="_blank" rel="noopener">Place a technician order</a>
+        </div>
+      </div>
+      <div class="container section-spacing">
+        <div class="technician-heading"><div><h2>Parts availability</h2><p>Availability changes; message us to reserve stock.</p></div><button class="btn btn-outline-light" onclick="handlePurchase('Technician stock list and bulk pricing')">Request bulk pricing</button></div>
+        <div class="stock-list">
+          <div class="stock-row"><div><strong>Samsung A15 LCD</strong><span>Display / screen · Samsung A15</span></div><span class="stock-status in-stock">Available</span><button class="btn btn-sm btn-primary" onclick="handlePurchase('Samsung A15 LCD')">Order</button></div>
+          <div class="stock-row"><div><strong>iPhone 11 Battery</strong><span>Battery · iPhone 11</span></div><span class="stock-status in-stock">Available</span><button class="btn btn-sm btn-primary" onclick="handlePurchase('iPhone 11 Battery')">Order</button></div>
+          <div class="stock-row"><div><strong>Redmi Note 12 Charging Port</strong><span>Charging port · Redmi Note 12</span></div><span class="stock-status in-stock">Available · confirm stock</span><button class="btn btn-sm btn-primary" onclick="handlePurchase('Xiaomi Redmi Note 12 Charging Port')">Order</button></div>
+        </div>
+        <div class="technician-services"><div><span class="service-icon">⌘</span><h3>Software services</h3><p>Ask about supported flashing, diagnostics, updates, and device recovery services.</p><button class="btn btn-outline" onclick="handlePurchase('Technician software service request')">Request software service</button></div><div><span class="service-icon">▤</span><h3>Parts sourcing</h3><p>Need an IC, flex, camera, board, or less common model? Send a photo or part number.</p><button class="btn btn-outline" onclick="handlePurchase('Technician part sourcing request')">Request a part</button></div><div><span class="service-icon">⇄</span><h3>Bulk & repeat orders</h3><p>Ask about multi-piece orders, dispatch options, and repeat supply for your workshop.</p><button class="btn btn-outline" onclick="handlePurchase('Technician bulk or repeat order enquiry')">Discuss supply</button></div></div>
+      </div>
+    </section>
+
+    <section id="page-contact" class="page-section">
+      <div class="page-header"><div class="container"><span class="badge">Location & Contact</span><h1>Let’s get your phone sorted.</h1><p>Call, message, or visit us in Ile-Ife. Contact us before travelling to confirm opening hours and part availability.</p></div></div>
+      <div class="container section-spacing contact-layout">
+        <div class="contact-details">
+          <div class="contact-item"><span class="contact-icon">⌖</span><div><h3>Visit the shop</h3><p>Mayfair, close to the roundabout, Ile-Ife, Osun State, Nigeria</p><a href="https://maps.google.com/?q=Mayfair%2C%20Ile-Ife%2C%20Osun%20State%2C%20Nigeria" target="_blank" rel="noopener">Open Google Maps →</a></div></div>
+          <div class="contact-item"><span class="contact-icon">☎</span><div><h3>Call or WhatsApp</h3><p><a href="tel:+2348120268491">+234 812 026 8491</a></p><a href="https://wa.me/2348120268491" target="_blank" rel="noopener">Start a WhatsApp chat →</a></div></div>
+          <div class="contact-item"><span class="contact-icon">◷</span><div><h3>Opening hours</h3><p>Monday–Saturday · 8:30 AM–7:30 PM</p><p>Sunday · Contact us before visiting</p></div></div>
+          <div class="contact-item"><span class="contact-icon">✉</span><div><h3>Email</h3><p><a href="mailto:itechfixitoff@gmail.com">itechfixitoff@gmail.com</a></p></div></div>
+          <div class="social-links"><span>Social</span><a href="https://www.instagram.com/itechfixit_/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/share/1C2TFNS7i5/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a></div>
+        </div>
+        <div class="map-frame"><iframe title="Map showing Mayfair, Ile-Ife" src="https://maps.google.com/maps?q=Mayfair%2C%20Ile-Ife%2C%20Osun%20State%2C%20Nigeria&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <div class="brand-title">ITECH <span class="highlight">FIX</span></div>
+        <div class="brand-sub">INFINITY TECHNOLOGY FIX</div>
+        <p class="footer-desc">Buy, fix, sell, swap, and repair phones, laptops, and gadgets in Mayfair, Ile-Ife.</p>
+        <a class="footer-admin-link" href="admin.html">Admin Dashboard</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home" onclick="showPage('home')">Home</a></li>
+          <li><a href="#swap" onclick="showPage('swap')">Buy, sell & swap devices</a></li>
+          <li><a href="#repairs" onclick="showPage('repairs')">Phone & gadget repairs</a></li>
+          <li><a href="#parts" onclick="showPage('parts')">Parts shop</a></li>
+          <li><a href="#technicians" onclick="showPage('technicians')">Technician desk</a></li>
+          <li><a href="#contact" onclick="showPage('contact')">Location & contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact & Lab</h4>
+        <ul class="footer-links">
+          <li>📍 Mayfair, close to the roundabout, Ile-Ife</li>
+          <li>📞 <a href="tel:+2348120268491">+234 812 026 8491</a></li>
+          <li>💬 <a href="https://wa.me/2348120268491">WhatsApp: +234 812 026 8491</a></li>
+          <li>✉️ <a href="mailto:itechfixitoff@gmail.com">itechfixitoff@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/itechfixit_/" target="_blank" rel="noopener">Instagram: @itechfixit_</a></li>
+          <li><a href="https://www.facebook.com/share/1C2TFNS7i5/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a></li>
+          <li>⏰ Mon-Sat: 8:30 AM - 7:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© 2026 Infinity Technology Fix (ITECH Fix). All rights reserved.</div>
+      <div>Aligned with Right to Repair & iFixit Open Quality Standards</div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/2348120268491?text=Hello%20ITECH%20Fix%2C%20I%20need%20help%20with%20a%20phone." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+    <span aria-hidden="true">◉</span><span class="whatsapp-float-label">WhatsApp</span>
+  </a>
+
+  <!-- Book Repair Modal -->
+  <div id="book-modal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Book Priority Repair Desk</h3>
+        <button class="close-btn" onclick="closeModal('book-modal')">×</button>
+      </div>
+      <form id="booking-form" onsubmit="submitBooking(event)">
+        <div class="form-group">
+          <label for="book-device">Phone brand / model</label>
+          <input type="text" id="book-device" placeholder="e.g. Samsung A15, iPhone 11" required />
+        </div>
+        <div class="form-group">
+          <label for="book-issue">Problem with the phone</label>
+          <select id="book-issue" required>
+            <option value="">Choose a problem</option>
+            <option>Screen replacement</option><option>Charging-port repair</option><option>Software / OS repair</option><option>IC / motherboard repair</option><option>Network / unlock service</option><option>Water-damage repair</option><option>Battery replacement</option><option>Other specialized repair</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="book-date">Preferred date</label>
+          <input type="date" id="book-date" required />
+        </div>
+        <div class="form-group">
+          <label for="book-name">Your Full Name</label>
+          <input type="text" id="book-name" placeholder="Oyetunji Iyanuoluwa" required />
+        </div>
+        <div class="form-group">
+          <label for="book-phone">Phone Number / WhatsApp</label>
+          <input type="tel" id="book-phone" placeholder="+234 812 345 6789" required />
+        </div>
+        <div class="form-group">
+          <label for="book-method">Area / preferred location</label>
+          <input type="text" id="book-method" placeholder="Enter your area, town, or delivery location" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirm Appointment (No Fix, No Fee)</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Swap Modal -->
+  <div id="swap-modal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Device Swap & Trade-In Calculator</h3>
+        <button class="close-btn" onclick="closeModal('swap-modal')">×</button>
+      </div>
+      <div class="swap-body">
+        <div class="form-group">
+          <label>Your Current Device</label>
+          <select id="swap-device-select" onchange="calculateSwapVal()">
+            <option value="620">Apple iPhone 15 Pro Max</option>
+            <option value="540">Apple iPhone 15 Pro</option>
+            <option value="420">Apple iPhone 14 Pro</option>
+            <option value="610">Samsung Galaxy S24 Ultra</option>
+            <option value="550">MacBook Air M2</option>
+            <option value="480">Dell XPS 15</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Current Condition</label>
+          <select id="swap-cond-select" onchange="calculateSwapVal()">
+            <option value="1.0">Flawless (No scratches)</option>
+            <option value="0.85" selected>Good (Minor wear)</option>
+            <option value="0.60">Cracked Glass / Back</option>
+            <option value="0.35">Dead / Water Damaged / Won't Power On</option>
+          </select>
+        </div>
+        <div class="estimate-result">
+          <div class="result-row">
+            <span>Direct Cash Offer:</span>
+            <strong class="result-price" id="swap-cash">₦688,500</strong>
+          </div>
+          <div class="result-row">
+            <span>ITECH Store Credit (+15% Bonus):</span>
+            <strong class="result-price color-green" id="swap-credit">₦790,200</strong>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="alert('Quote locked for 14 days! Show this to our technicians at the store.')">Lock In This Valuation</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="supabase-config.js?v=1"></script>
+  <script src="supabase-client.js?v=1"></script>
+  <script src="script.js"></script>
+  <script src="catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catalog Admin | ITECH Fix</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, Segoe UI, Arial, sans-serif; color: #13233b; background: #f1f5fb; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; background: radial-gradient(ellipse at top right, #e3edff 0, transparent 35%), #f1f5fb; }
+    header { min-height: 76px; padding: 16px max(20px, calc((100% - 1120px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 16px; background: linear-gradient(115deg, #0d1b31, #17385e); color: white; box-shadow: 0 8px 24px #11233a24; }
+    header h1 { margin: 0; font-size: 20px; letter-spacing: .02em; }
+    main { width: min(1120px, calc(100% - 32px)); margin: 34px auto 60px; }
+    .panel { background: #fff; border: 1px solid #e0e8f2; border-radius: 16px; padding: 26px; margin-bottom: 22px; box-shadow: 0 12px 34px #1935570c; }
+    .panel h2 { margin: 0 0 18px; font-size: 21px; letter-spacing: -.02em; }
+    .hint { color: #66758a; font-size: 14px; line-height: 1.6; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    label { display: block; font-size: 13px; font-weight: 700; }
+    input, select, textarea { width: 100%; display: block; margin-top: 7px; padding: 11px 12px; border: 1px solid #d4deea; border-radius: 9px; font: inherit; color: #13233b; background: #fbfdff; transition: border-color .15s, box-shadow .15s; }
+    input:focus, select:focus, textarea:focus { outline: 0; border-color: #3980eb; box-shadow: 0 0 0 3px #3980eb20; }
+    textarea { min-height: 95px; resize: vertical; }
+    .wide { grid-column: 1 / -1; }
+    .check { display: flex; align-items: center; gap: 8px; }
+    .check input { width: auto; margin: 0; }
+    button, .button-link { display: inline-block; border: 0; border-radius: 9px; padding: 11px 16px; font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .15s, background .15s; }
+    button:hover, .button-link:hover { transform: translateY(-1px); }
+    button:disabled { opacity: .65; cursor: wait; transform: none; }
+    .primary { background: linear-gradient(110deg, #1769db, #3989f5); color: white; box-shadow: 0 5px 14px #1769db32; }
+    .primary:hover { box-shadow: 0 8px 18px #1769db40; }
+    .secondary { background: #edf3fa; color: #1c3553; }
+    .danger { background: #fff0f0; color: #a12727; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .toolbar h2 { margin: 0 auto 0 0; }
+    #form-message { min-height: 20px; color: #9b2525; font-size: 13px; margin: 12px 0; }
+    #form-message.success { color: #167344; }
+    #server-retry { margin-top: 8px; }
+    .dashboard-hero { position: relative; overflow: hidden; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 32px; margin-bottom: 22px; border-radius: 18px; color: white; background: linear-gradient(115deg, #12243e 0%, #1c4d80 70%, #2879c8 100%); box-shadow: 0 14px 32px #173d632b; }
+    .dashboard-hero::after { content: ""; position: absolute; width: 260px; height: 260px; right: 100px; top: -170px; border-radius: 50%; border: 1px solid #ffffff20; box-shadow: 0 0 0 32px #ffffff0a, 0 0 0 64px #ffffff08; pointer-events: none; }
+    .dashboard-hero h2 { margin: 0 0 7px; font-size: clamp(23px, 4vw, 32px); }
+    .dashboard-hero p { margin: 0; max-width: 620px; color: #d4e4f6; line-height: 1.55; }
+    .dashboard-hero-copy { position: relative; z-index: 1; }
+    .dashboard-hero .badge { margin: 0; color: white; background: #ffffff1d; border: 1px solid #ffffff2b; white-space: nowrap; }
+    .dashboard-hero-actions { position: relative; z-index: 1; display: flex; align-items: center; gap: 10px; }
+    #listing-list { display: grid; gap: 12px; }
+    .listing { display: grid; grid-template-columns: 88px minmax(0, 1fr) auto; gap: 16px; align-items: center; border: 1px solid #e5ebf3; border-radius: 12px; padding: 13px; background: #fff; transition: border-color .15s, box-shadow .15s, transform .15s; }
+    .listing:hover { border-color: #cad9ed; box-shadow: 0 7px 18px #1935570c; transform: translateY(-1px); }
+    .listing img { width: 88px; height: 68px; object-fit: cover; border-radius: 9px; background: #edf1f5; }
+    .listing h3 { margin: 0 0 5px; font-size: 16px; }
+    .listing p { margin: 0; color: #66758a; font-size: 13px; }
+    .listing-actions { display: flex; gap: 7px; }
+    .badge { display: inline-block; border-radius: 20px; background: #eaf2ff; color: #1657a7; padding: 5px 10px; margin-bottom: 5px; font-size: 11px; font-weight: 700; }
+    [hidden] { display: none !important; }
+    @media (max-width: 650px) {
+      .fields { grid-template-columns: 1fr; }
+      .wide { grid-column: auto; }
+      .dashboard-hero { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .listing { grid-template-columns: 64px minmax(0, 1fr); }
+      .listing img { width: 64px; height: 56px; }
+      .listing-actions { grid-column: 1 / -1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ITECH Fix · Catalog Admin</h1>
+    <a class="button-link secondary" href="index.html">View storefront</a>
+  <button id="logout-button" class="secondary" type="button" hidden>Sign out</button>
+  </header>
+  <main>
+  <section id="login-panel" class="panel" hidden>
+    <h2>Admin sign in</h2>
+    <p id="login-help" class="hint">Sign in to manage catalog listings.</p>
+    <form id="login-form">
+      <label id="admin-password-label" for="admin-password">Administrator password</label>
+      <input id="admin-password" type="password" autocomplete="current-password" required />
+      <p id="login-message" role="status"></p>
+      <button class="primary" type="submit">Sign in</button>
+      <button id="show-recovery" class="secondary" type="button" hidden>Forgot password?</button>
+    </form>
+    <form id="recovery-form" hidden>
+      <label for="recovery-email">Administrator email</label>
+      <input id="recovery-email" type="email" autocomplete="email" required />
+      <p class="hint">Enter the authorized administrator email to receive a one-time code.</p>
+      <button id="send-recovery-code" class="primary" type="button">Send OTP</button>
+      <div id="recovery-code-fields" hidden>
+        <label for="recovery-otp">One-time code</label>
+        <input id="recovery-otp" inputmode="numeric" autocomplete="one-time-code" required />
+        <label for="recovery-password">New password</label>
+        <input id="recovery-password" type="password" autocomplete="new-password" minlength="8" required />
+        <label for="recovery-password-confirm">Confirm new password</label>
+        <input id="recovery-password-confirm" type="password" autocomplete="new-password" minlength="8" required />
+        <button id="reset-password-button" class="primary" type="submit">Reset password</button>
+      </div>
+      <p id="recovery-message" role="status"></p>
+      <button id="back-to-login" class="secondary" type="button">Back to sign in</button>
+    </form>
+  </section>
+  <section id="dashboard" hidden>
+      <section class="dashboard-hero">
+        <div class="dashboard-hero-copy">
+          <h2>Catalog dashboard</h2>
+          <p>Manage every product and service in one place. Updates are published to their matching storefront sections.</p>
+        </div>
+        <div class="dashboard-hero-actions">
+          <span id="dashboard-count" class="badge">Loading listings</span>
+          <span id="editor-label" class="badge">Local editor</span>
+        </div>
+      </section>
+      <div class="panel">
+        <div class="toolbar">
+          <h2 id="editor-title">Add a listing</h2>
+          <button id="cancel-edit" class="secondary" type="button" hidden>Cancel edit</button>
+        </div>
+        <p class="hint">Add or update a product or service. Its category controls which storefront section displays it, and the matching page destination is automatically selected for you. Prices are optional. Images can be JPEG, PNG, WEBP, or GIF up to 8 MB.</p>
+        <form id="item-form">
+          <div class="fields">
+            <label>Section
+              <select id="category" required>
+                <option value="home-showcase">Homepage highlights</option>
+                <option value="phone-sales">Phone sales</option>
+                <option value="phone-repairs">Phone repairs</option>
+                <option value="laptop-sales">Laptop sales</option>
+                <option value="laptop-repairs">Laptop repairs</option>
+                <option value="gadgets">Gadgets & accessories</option>
+                <option value="phone-parts">Phone spare parts</option>
+              </select>
+            </label>
+            <label>Title<input id="title" maxlength="120" required /></label>
+            <label>Price or quote<input id="price" maxlength="80" placeholder="e.g. ₦25,000 or Ask for price" /></label>
+            <label>Device model (optional)<input id="model" maxlength="120" /></label>
+            <label>Spare-part category
+              <select id="part-category">
+                <option>Displays</option><option>Batteries</option><option>Charging ports</option><option>Cameras</option><option>Flex cables</option><option>Motherboards & ICs</option><option>Audio</option><option>Tools</option><option>Accessories</option>
+              </select>
+            </label>
+            <label>Image destination
+              <select id="target">
+                <option value="phones">Phone sales</option>
+                <option value="repairs">Phone repairs</option>
+                <option value="laptops">Laptops</option>
+                <option value="gadgets">Gadgets & accessories</option>
+              </select>
+            </label>
+            <label>Availability (optional)<input id="stock" maxlength="80" placeholder="e.g. In stock" /></label>
+            <label>Upload image<input id="image-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif" /></label>
+            <label class="wide">Description<textarea id="description" maxlength="2000"></textarea></label>
+            <label class="check wide"><input id="visible" type="checkbox" checked /> Show this listing on the storefront</label>
+          </div>
+          <p id="form-message" role="status"></p>
+          <button id="save-button" class="primary" type="submit">Save listing</button>
+        </form>
+      </div>
+
+      <section class="panel">
+        <div class="toolbar">
+          <h2>All products and services</h2>
+        </div>
+        <button id="server-retry" class="secondary" type="button" hidden>Try again</button>
+        <div id="listing-list" aria-live="polite"></div>
+      </section>
+    </section>
+  </main>
+<script src="supabase-config.js?v=3"></script>
+<script src="supabase-client.js?v=4"></script>
+<script src="admin.js?v=11"></script>
+</body>
+</html>
